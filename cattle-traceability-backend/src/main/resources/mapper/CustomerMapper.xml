@@ -1,0 +1,17 @@
+
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.pj.cattletraceabilitybackend.mapper.CustomerMapper">
+    <resultMap id="customerMap" type="io.github.pj.cattletraceabilitybackend.entity.Customer">
+        <!-- 其他结果映射... -->
+    </resultMap>
+
+    <insert id="register" parameterType="io.github.pj.cattletraceabilitybackend.entity.Customer">
+        <!-- SQL插入语句 -->
+    </insert>
+
+    <select id="findByUsername" resultMap="customerMap">
+        <!-- SQL查询语句 -->
+    </select>
+</mapper>

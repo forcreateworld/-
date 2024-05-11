@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.pj.cattletraceabilitybackend.mapper.ProcessMapper">
+    <resultMap id="processMap" type="io.github.pj.cattletraceabilitybackend.entity.ProcessingInfo">
+        <id property="id" column="id"/>
+        <result property="cattleId" column="cattle_id"/>
+        <result property="processingTime" column="processing_time"/>
+        <result property="acidRemovalTime" column="acid_removal_time"/>
+        <result property="finalProductWeight" column="final_product_weight"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="io.github.pj.cattletraceabilitybackend.entity.ProcessingInfo">
+        INSERT INTO process (cattle_id, processing_time, acid_removal_time, final_product_weight)
+        VALUES (#{cattleId}, #{processingTime}, #{acidRemovalTime}, #{finalProductWeight})
+    </insert>
+
+    <select id="getByCalttleId" resultMap="processMap">
+        SELECT * FROM process WHERE cattle_id = #{cattleId}
+    </select>
+
+    <update id="update" parameterType="io.github.pj.cattletraceabilitybackend.entity.ProcessingInfo">
+        UPDATE process
+        SET processing_time = #{processingTime},
+            acid_removal_time = #{acidRemovalTime},
+            final_product_weight = #{finalProductWeight}
+        WHERE cattle_id = #{cattleId}
+    </update>
+
+    <delete id="deleteByCattleId">
+        DELETE FROM process WHERE cattle_id = #{cattleId}
+    </delete>
+</mapper>
