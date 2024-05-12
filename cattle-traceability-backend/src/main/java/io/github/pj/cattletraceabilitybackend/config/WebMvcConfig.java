@@ -1,6 +1,6 @@
 package io.github.pj.cattletraceabilitybackend.config;
 
-import com.example.interceptor.LoginInterceptor;
+import io.github.pj.cattletraceabilitybackend.config.LoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

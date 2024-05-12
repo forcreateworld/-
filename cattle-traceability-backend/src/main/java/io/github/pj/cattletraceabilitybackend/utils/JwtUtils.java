@@ -1,6 +1,7 @@
 package io.github.pj.cattletraceabilitybackend.utils;
 
 import com.fasterxml.jackson.core.JsonFactory;
+import jdk.internal.org.jline.reader.LineReaderBuilder;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -29,8 +30,9 @@ public class JwtUtils {
     /**
      * 解析JWT令牌
      */
-    public static Claims parseToken(String token) {
+    public static <Claims> Claims parseToken(String token) {
         try {
+            LineReaderBuilder Jwts = null;
             return Jwts.parser()
                     .setSigningKey(SECRET)
                     .parseClaimsJws(token)
